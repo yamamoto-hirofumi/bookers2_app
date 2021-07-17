@@ -2,13 +2,16 @@
   		<h2>Book detail</h2>
   		<table class='table'>
   		  <tr>
-          <td><a href="/users/4496">
-                  <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" /><br>
+  		   <%= link_to books_path(book.id) do %>
+          <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" /><br>
                   yamamoto</a>
             </td>
+         <% end %>
+         <% link_to book_path(book.id) do %>
           <td><%= @book.title %></td>
+         <% end %>
           <td><%= @book.body %></td>
-          <td><%= link_to "Edit", edit_book_path(@book) %></td>
+          <td><%= link_to "Edit", edit_book_path(@book), {class: "btn btn-sm btn-danger"} %></td>
           <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
         </tr>
      </table>
